@@ -1,0 +1,6 @@
+streamlit
+gpt-researcher
+python-dotenv
+langchain-openai
+pydantic
+prettytable

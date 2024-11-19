@@ -1,0 +1,149 @@
+# Company Research Assistant 🔍
+
+A Streamlit application that performs comprehensive research on companies using GPT Researcher and presents the information in a structured format. The app fetches company details including address, legal structure, contact information, directors, and more.
+
+## Features ✨
+
+- Automated company research using GPT Researcher
+- Structured information display with Streamlit
+- Comprehensive company details including:
+  - Primary address and legal form
+  - Contact information
+  - Directors and shareholders
+  - Registration details
+  - Revenue information
+- Reference links to source materials
+- Error handling for missing or invalid data
+
+## Prerequisites 📋
+
+Before running the application, make sure you have Python 3.8+ installed on your system.
+
+### API Keys Required 🔑
+
+1. **OpenAI API Key**
+   - Visit [OpenAI](https://platform.openai.com/api-keys)
+   - Sign up or log in
+   - Generate a new API key
+   - Copy the key for later use
+
+2. **Tavily API Key**
+   - Visit [Tavily](https://tavily.com/)
+   - Sign up for an account
+   - Navigate to your dashboard
+   - Generate an API key
+   - Copy the key for later use
+
+## Installation 🚀
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd company-research-assistant
+```
+
+2. Create and activate a virtual environment (recommended):
+```bash
+# For Linux/macOS
+python -m venv venv
+source venv/bin/activate
+
+# For Windows
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+3. Install the required packages:
+```bash
+pip install -r requirements.txt
+```
+
+4. Create a `.env` file in the project root directory:
+```bash
+touch .env
+```
+
+5. Add your API keys to the `.env` file:
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+TAVILY_API_KEY=your_tavily_api_key_here
+```
+
+## Requirements 📝
+
+Create a `requirements.txt` file with these dependencies:
+```txt
+streamlit
+gpt-researcher
+python-dotenv
+langchain-openai
+pydantic
+prettytable
+```
+
+## Usage 💻
+
+1. Start the Streamlit app:
+```bash
+streamlit run app.py
+```
+
+2. Open your web browser and navigate to the provided URL (usually `http://localhost:8501`)
+
+3. Enter a company name in the input field
+
+4. Click "Fetch Details" to start the research process
+
+5. View the structured company information and references
+
+## Error Handling 🔧
+
+The application includes error handling for:
+- Missing or invalid contact information
+- API failures
+- Invalid company names
+- Data validation errors
+
+If any errors occur, the app will display appropriate error messages and suggestions for resolution.
+
+## Contributing 🤝
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Note on API Usage 💰
+
+- The OpenAI API is a paid service. Make sure you have sufficient credits in your account.
+- The Tavily API has different pricing tiers. Check their website for current pricing.
+- Monitor your API usage to avoid unexpected charges.
+
+## Troubleshooting 🛠️
+
+Common issues and solutions:
+
+1. **API Key Errors**
+   - Ensure your `.env` file is in the correct location
+   - Verify API keys are correct and not expired
+   - Check for any spaces or special characters in the `.env` file
+
+2. **Installation Issues**
+   - Make sure you're using Python 3.8+
+   - Try upgrading pip: `pip install --upgrade pip`
+   - Install packages one by one to identify problematic dependencies
+
+3. **Research Failures**
+   - Check your internet connection
+   - Verify the company name is correctly spelled
+   - Ensure both API services are operational
+
+## License 📄
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments 👏
+
+- GPT Researcher for the research capabilities
+- OpenAI for the language model
+- Tavily for search functionality
+- Streamlit for the web interface
+
+For any additional questions or issues, please open an issue in the repository.
