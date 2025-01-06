@@ -219,7 +219,7 @@ def final_output_generation(llm, report):
 
 
 def main():
-    st.title("Cedar Rose - AI Research Agent")
+    st.title("AI Web Research Agent")
 
     col1, col2 = st.columns(2)
 
@@ -246,7 +246,7 @@ def main():
 
                 data_dict = format_company_data_as_dict(result)
 
-                st.subheader("Cedar Rose - AI Research Agent Result: ")
+                st.subheader("AI Web Research Agent Result: ")
                 st.table(data_dict)
 
                 st.subheader("References")
