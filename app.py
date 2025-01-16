@@ -53,7 +53,7 @@ class CompanyInformation(BaseModel):
     legal_form: str = Field(..., description="Legal structure of the company")
     country: str = Field(..., description="Country where company is registered")
     town: str = Field(..., description="City and state/province of registration")
-    registration_date: date = Field(..., description="Date of company incorporation")
+    registration_date: str = Field(..., description="Date of company incorporation")
     contact_information: ContactInformation = Field(
         ..., description="Company contact details"
     )
@@ -79,23 +79,6 @@ class CompanyInformation(BaseModel):
         # Remove common separators and clean up
         cleaned = re.sub(r"[^a-zA-Z0-9]", "", v)
         return cleaned if cleaned else "Information not available"
-
-    @validator("registration_date", pre=True)
-    def parse_date(cls, v):
-        if isinstance(v, date):
-            return v
-        try:
-            for fmt in ("%Y-%m-%d", "%B %d, %Y", "%d/%m/%Y", "%Y/%m/%d", "%d-%m-%Y"):
-                try:
-                    return datetime.strptime(v, fmt).date()
-                except ValueError:
-                    continue
-            year_match = re.search(r"\b\d{4}\b", v)
-            if year_match:
-                return date(int(year_match.group()), 1, 1)
-            raise ValueError
-        except:
-            return date(1900, 1, 1)
 
     @validator("directors_shareholders", pre=True)
     def parse_directors(cls, v):
@@ -176,7 +159,7 @@ def format_company_data_as_dict(company_info):
                 sanitize_string(company_info.legal_form),
                 sanitize_string(company_info.country),
                 sanitize_string(company_info.town),
-                company_info.registration_date.strftime("%B %d, %Y"),
+                company_info.registration_date,
                 sanitize_string(company_info.contact_information.email),
                 sanitize_string(company_info.contact_information.phone),
                 sanitize_string(str(company_info.contact_information.website)),
